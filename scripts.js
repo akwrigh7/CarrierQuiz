@@ -17,10 +17,14 @@ let questions = [
 let num = 0;
 let header = document.getElementById("header");
 let questionsWrapper = document.getElementById("questionsWrapper");
+let introText = document.getElementsByClassName("introText");
 let startBtn = document.getElementById("start").addEventListener("click", function () {
+    for(let intro of introText){
+        intro.style.display = "none";
+    };
     header.style.display = "none";
     questionsWrapper.style.display = "flex";
-    loadQuestion(num)
+    loadQuestion(num);
 });
 
 let restartBtn = document.getElementById("restart");

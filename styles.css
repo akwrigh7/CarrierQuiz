@@ -129,7 +129,7 @@ table {
     --primary-color: hsl(220, 98%, 61%);
     --secondary-color: hsl(0, 63%, 45%);
     --background-color: rgb(16, 12, 32);
-    --text-color: rgb(235, 235, 235);
+    --text-color: rgb(225, 225, 225);
     --hover-color: rgb(29, 22, 57);
     --background-gradient: linear-gradient(
         to right,
@@ -239,6 +239,12 @@ header {
     }
 } */
 
+.introText {
+    font-size: 2rem;
+    color: var(--text-color);
+    text-align: center;
+}
+
 #questions {
     display: flex;
     flex-direction: column;
@@ -248,7 +254,7 @@ header {
     width: 80%;
     max-width: 1000px;
     height: 90%;
-    max-height: 850px;
+    max-height: 1150px;
     text-align: center;
 }
 
@@ -259,27 +265,35 @@ header {
     justify-content: center;
 }
 
+.hidden {
+    display: none;
+}
+
 #questions h2 {
     font-size: 1.7rem;
     border-bottom: 2px solid white;
     width: 80%;
-    padding: 20px 0px;
+    padding: 1rem;
 }
 
 #question {
-    font-size: 1.4rem;
-    margin: 2rem;
+    font-size: 1.3rem;
+    margin: 1rem;
 }
 
 #answers {
     width: 100%;
-    height: 80%;
+    height: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .answerBtns {
     width: 80%;
     height: 20%;
-    margin: 10px 0;
+
     font-size: 1.2rem;
     text-align: center;
     color: var(--text-color);
@@ -287,6 +301,7 @@ header {
     font-family: var(--primary-font);
     border-radius: 20px;
     border: var(--border);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .answerBtns:hover {
@@ -294,7 +309,6 @@ header {
     transform: translateY(-10px);
     box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.8);
     border: none;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
     cursor: pointer;
 }
 
@@ -304,9 +318,8 @@ header {
     border: var(--border);
     display: none;
     align-items: center;
-    padding: 25px;
-    margin-bottom: 40px;
-    margin-top: 40px;
+    padding: 4%;
+
     font-size: 1rem;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -331,9 +344,8 @@ header {
     border: var(--border);
     display: none;
     align-items: center;
-    padding: 25px;
-    margin-bottom: 40px;
-    margin-top: 40px;
+    padding: 4%;
+
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -356,6 +368,21 @@ header {
     width: 80%;
 }
 
+#progressContainer {
+    background-color: var(--background-color);
+    width: 80%;
+    padding: 2%;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+#progressBar {
+    width: 100%;
+    background: var(--background-gradient);
+    height: 5%;
+    border-radius: 5%;
+}
+
 .clicked {
     background-color: white;
     color: var(--background-color);
@@ -373,10 +400,12 @@ header {
 @media screen and (min-width: 768px) {
     #questions h2 {
         font-size: 3rem;
+        padding: 1.5rem;
     }
 
     #question {
         font-size: 2rem;
+        margin: 2rem;
     }
 
     #answers {
@@ -390,11 +419,14 @@ header {
     .answerBtns {
         width: 100%;
         height: 100%;
+        font-size: 1.7rem;
     }
 
     #next {
-        margin-top: 40px;
-        margin-bottom: 40px;
-        font-size: 1rem;
+        font-size: 1.3rem;
+    }
+
+    #restart {
+        font-size: 1.3rem;
     }
 }

@@ -181,24 +181,25 @@ header {
     border: none;
 }
 
+/* Code for spinning rainbow from: https://www.coding2go.com */
 #heading {
-    /* margin: 0 auto;
+    margin: 0 auto;
     padding: 3rem;
     width: 330px;
     background: #1c1f2b;
     text-align: center;
     border-radius: 10px;
-    position: relative; */
-    display: flex;
+    position: relative;
+    /* display: flex;
     flex-direction: column;
     align-items: center;
     background-color: rgb(35, 35, 67);
     padding: 30px 0px;
     border-radius: 20px;
-    width: 350px;
+    width: 350px; */
 }
 
-/* @property --angle {
+@property --angle {
     syntax: "<angle>";
     initial-value: 0deg;
     inherits: false;
@@ -212,11 +213,11 @@ header {
     width: 100%;
     background-image: conic-gradient(
         from var(--angle),
-        #ff4545,
-        #00ff99,
-        #006aff,
-        #ff0095,
-        #ff4545
+        var(--background-color),
+        hsl(246, 85%, 48%),
+        var(--background-color),
+        hsl(201, 100%, 45%),
+        var(--background-color)
     );
     top: 50%;
     left: 50%;
@@ -237,7 +238,7 @@ header {
     to {
         --angle: 360deg;
     }
-} */
+}
 
 .introText {
     font-size: 2rem;
@@ -252,10 +253,11 @@ header {
     background-color: rgb(35, 35, 67);
     border-radius: 20px;
     width: 80%;
+    height: 95%;
     max-width: 1000px;
-    height: 90%;
     max-height: 1150px;
     text-align: center;
+    position: relative;
 }
 
 #questionsWrapper {
@@ -371,16 +373,19 @@ header {
 #progressContainer {
     background-color: var(--background-color);
     width: 80%;
-    padding: 2%;
+    padding: 10px;
     border-radius: 20px;
     overflow: hidden;
+    position: absolute;
+    bottom: 10px;
 }
 
 #progressBar {
-    width: 100%;
+    width: 0%;
     background: var(--background-gradient);
-    height: 5%;
-    border-radius: 5%;
+    height: 10px;
+    border-radius: 20px;
+    transition: width 0.5s ease;
 }
 
 .clicked {

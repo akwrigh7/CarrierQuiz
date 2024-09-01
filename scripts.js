@@ -18,7 +18,7 @@ let num = 0;
 let header = document.getElementById("header");
 let questionsWrapper = document.getElementById("questionsWrapper");
 let introText = document.getElementsByClassName("introText");
-let startBtn = document.getElementById("start").addEventListener("click", function () {
+document.getElementById("start").addEventListener("click", function () {
     for(let intro of introText){
         intro.style.display = "none";
     };
@@ -38,6 +38,7 @@ answerButtons.forEach(button => {
         this.classList.add("clicked");
         nextBtn.style.display = "flex";
         restartBtn.style.display = "flex";
+        loadProgBar(num + 1);
     });
 });
 
@@ -56,13 +57,13 @@ restartBtn.addEventListener("click", function(){
     answerButtons.forEach(button => button.classList.remove("clicked"));
     num = 0;
     loadQuestion(num);
+    loadProgBar(num);
 });
 
 let a1 = document.getElementById("a1");
 let a2 = document.getElementById("a2");
 let a3 = document.getElementById("a3");
 let a4 = document.getElementById("a4");
-
 let questionNum = document.getElementById("questionNum");
 let question = document.getElementById("question");
 function loadQuestion(num){
@@ -76,4 +77,10 @@ function loadQuestion(num){
         a3.innerHTML = questions[num].answer[2];
         a4.innerHTML = questions[num].answer[3];
     }
+}
+
+let progressBar = document.getElementById("progressBar");
+function loadProgBar(num){
+    let widthIncrements = 100 / questions.length;
+    progressBar.style.width = `${num * widthIncrements}%`;
 }

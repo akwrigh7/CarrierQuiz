@@ -160,6 +160,7 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
 }
 
 #start {
@@ -185,7 +186,7 @@ header {
 #heading {
     margin: 0 auto;
     padding: 3rem;
-    width: 330px;
+    min-width: 130px;
     background: #1c1f2b;
     text-align: center;
     border-radius: 10px;
@@ -244,6 +245,7 @@ header {
     font-size: 2rem;
     color: var(--text-color);
     text-align: center;
+    margin: 3rem;
 }
 
 #questions {
@@ -321,7 +323,7 @@ header {
     display: none;
     align-items: center;
     padding: 4%;
-
+    margin-top: 6%;
     font-size: 1rem;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -347,7 +349,7 @@ header {
     display: none;
     align-items: center;
     padding: 4%;
-
+    margin-top: 6%;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -403,6 +405,26 @@ header {
 }
 
 @media screen and (min-width: 768px) {
+    #heading {
+        padding: 6rem;
+    }
+
+    h1 {
+        font-size: 4rem;
+    }
+
+    #title {
+        font-size: 1.9rem;
+    }
+
+    .introText {
+        font-size: 2.5rem;
+    }
+
+    #start {
+        font-size: 2rem;
+    }
+
     #questions h2 {
         font-size: 3rem;
         padding: 1.5rem;
@@ -427,11 +449,9 @@ header {
         font-size: 1.7rem;
     }
 
-    #next {
-        font-size: 1.3rem;
-    }
-
+    #next,
     #restart {
         font-size: 1.3rem;
+        margin-top: 4%;
     }
 }

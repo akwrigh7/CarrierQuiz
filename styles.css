@@ -404,6 +404,13 @@ header {
     transform: none;
 }
 
+#plansWrapper h2 {
+    background: var(--background-gradient);
+    font-size: 2rem;
+    text-align: center;
+    padding: 1.5rem;
+}
+
 @media screen and (min-width: 768px) {
     #heading {
         padding: 6rem;
@@ -453,5 +460,10 @@ header {
     #restart {
         font-size: 1.3rem;
         margin-top: 4%;
+    }
+
+    #plansWrapper h2 {
+        font-size: 3.5rem;
+        padding: 2rem;
     }
 }

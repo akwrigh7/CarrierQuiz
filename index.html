@@ -5,17 +5,19 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="author" content="Alex Wright" />
         <link rel="stylesheet" href="styles.css" />
-        <script src="scripts.js" defer></script>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
             href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
             rel="stylesheet"
         />
+        <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+        <script src="scripts.js" defer></script>
+    
         <title>The Carrier Quiz</title>
     </head>
     <body>
-        <header id="header">
+        <!-- <header id="header">
             <div class="introText">Looking for a phone plan?</div>
             <section id="heading">
                 <h1>Welcome</h1>
@@ -75,6 +77,10 @@
                         <div id="progressBar"></div>
                     </div>
                 </section>
+            </div> -->
+            <div id="plansWrapper">
+                <h2 id="planHead">Your Plans</h2>
+                <section id="plans"></section>
             </div>
         </main>
     </body>

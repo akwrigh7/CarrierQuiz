@@ -137,6 +137,7 @@ table {
         hsl(201, 100%, 30%)
     );
     --border: 1px solid rgb(56, 56, 56);
+    --light-purple: rgb(35, 35, 67);
 }
 
 html {
@@ -252,7 +253,7 @@ header {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: rgb(35, 35, 67);
+    background-color: var(--light-purple);
     border-radius: 20px;
     width: 80%;
     height: 95%;
@@ -331,6 +332,7 @@ header {
 #next svg {
     height: 20px;
     width: 20px;
+    margin-left: 5px;
 }
 
 #next:hover {
@@ -356,6 +358,7 @@ header {
 #restart svg {
     height: 20px;
     width: 20px;
+    margin-left: 5px;
 }
 
 #restart:hover {
@@ -404,11 +407,93 @@ header {
     transform: none;
 }
 
-#plansWrapper h2 {
+#recommendedPlans {
+    display: flex;
+    width: 100%;
+    max-width: 1100px;
+    height: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+}
+
+#plansWrapper {
+    /* change */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#planHead {
+    /* change */
+    display: block;
     background: var(--background-gradient);
     font-size: 2rem;
     text-align: center;
     padding: 1.5rem;
+}
+
+.plan {
+    width: 220px;
+    height: 550px;
+    background-color: var(--light-purple);
+    margin: 0.5rem;
+    border: 1px solid white;
+    border-radius: 10px;
+}
+
+.cardHead {
+    text-align: center;
+}
+
+.subHead {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.lines,
+.network {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.lines svg,
+.network svg {
+    height: 20px;
+    width: auto;
+}
+
+.tax {
+    text-align: center;
+}
+
+.price {
+    text-align: center;
+}
+
+.largePrice {
+}
+
+#loadBtn {
+    font-family: var(--primary-font);
+    text-align: center;
+    border: var(--border);
+    font-size: 1.6rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 10px;
+    margin-top: 2rem;
+    padding: 10px 20px;
+}
+
+#loadBtn:hover {
+    background-color: var(--background-color);
+    color: white;
+    cursor: pointer;
+    box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.8);
+    transform: translateY(-10px);
 }
 
 @media screen and (min-width: 768px) {
@@ -460,10 +545,19 @@ header {
     #restart {
         font-size: 1.3rem;
         margin-top: 4%;
+        margin-bottom: 10%;
     }
 
-    #plansWrapper h2 {
+    #planHead {
         font-size: 3.5rem;
         padding: 2rem;
+    }
+
+    #recommendedPlans {
+    }
+}
+
+@media screen and (min-width: 1080px) {
+    #recommendedPlans {
     }
 }

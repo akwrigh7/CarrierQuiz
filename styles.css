@@ -137,7 +137,9 @@ table {
         hsl(201, 100%, 30%)
     );
     --border: 1px solid rgb(56, 56, 56);
-    --light-purple: rgb(35, 35, 67);
+    --light-purple: rgb(67, 67, 67);
+    --dark-gray: #292929;
+    --light-gray: #a7a7a7;
 }
 
 html {
@@ -414,7 +416,7 @@ header {
     height: 100%;
     justify-content: center;
     flex-wrap: wrap;
-    margin-top: 2rem;
+    margin-top: 1.5rem;
 }
 
 #plansWrapper {
@@ -439,18 +441,162 @@ header {
     height: 550px;
     background-color: var(--light-purple);
     margin: 0.5rem;
-    border: 1px solid white;
+    border: 1px solid #68af85;
     border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+    transform: translateX(-100%);
+    opacity: 0;
+    animation: dropDown 0.5s forwards;
+}
+
+@keyframes dropDown {
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.plan:nth-child(1) {
+    animation-delay: 0.1s;
+}
+.plan:nth-child(2) {
+    animation-delay: 0.3s;
+}
+.plan:nth-child(3) {
+    animation-delay: 0.5s;
+}
+.plan:nth-child(4) {
+    animation-delay: 0.7s;
+}
+.plan:nth-child(5) {
+    animation-delay: 0.9s;
+}
+.plan:nth-child(6) {
+    animation-delay: 1.1s;
+}
+.plan:nth-child(7) {
+    animation-delay: 1.3s;
+}
+.plan:nth-child(8) {
+    animation-delay: 1.5s;
+}
+
+.plan svg {
+    height: 20px;
+    width: auto;
 }
 
 .cardHead {
     text-align: center;
+    padding: 0.8rem;
+    font-size: 1.1rem;
+    font-weight: 550;
 }
 
 .subHead {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
+    background-color: var(--dark-gray);
+    padding: 0.3rem;
+}
+
+.mint {
+    background-color: #68af85;
+}
+
+.visible {
+    background-color: #2600ff;
+}
+
+.usMobile {
+    background-color: #d9484c;
+}
+
+.boost {
+    background-color: #ec622b;
+}
+
+.tello {
+    background-color: #0d84d9;
+}
+
+.verizon {
+    background-color: #d52b1e;
+}
+
+.tMobile {
+    background-color: #e20074;
+}
+
+.att {
+    background-color: #469dd6;
+}
+
+.metro {
+    background-color: #6e32a0;
+}
+
+.redPocket {
+    background-color: #aa0808;
+}
+
+.firstNet {
+    background-color: #000000;
+}
+
+.helium {
+    background-color: #ff7526;
+}
+
+.mintBorder {
+    border: 2px solid #68af85;
+}
+
+.visibleBorder {
+    border: 2px solid #2600ff;
+}
+
+.usMobileBorder {
+    border: 2px solid #d9484c;
+}
+
+.boostBorder {
+    border: 2px solid #ec622b;
+}
+
+.telloBorder {
+    border: 2px solid #0d84d9;
+}
+
+.verizonBorder {
+    border: 2px solid #d52b1e;
+}
+
+.tMobileBorder {
+    border: 2px solid #e20074;
+}
+
+.attBorder {
+    border: 2px solid #469dd6;
+}
+
+.metroBorder {
+    border: 2px solid #6e32a0;
+}
+
+.redPocketBorder {
+    border: 2px solid #aa0808;
+}
+
+.firstNetBorder {
+    border: 2px solid #000000;
+}
+
+.heliumBorder {
+    border: 2px solid #ff7526;
 }
 
 .lines,
@@ -458,23 +604,168 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
+    font-size: 0.8rem;
 }
 
 .lines svg,
 .network svg {
-    height: 20px;
+    height: 15px;
     width: auto;
 }
 
 .tax {
     text-align: center;
+    padding-bottom: 1rem;
+}
+
+.tax::after {
+    content: "";
+    width: 90%;
+    position: absolute;
+    background-color: lightgray;
+    height: 2px;
+    bottom: 402px;
+    transform: translateX(-50%);
+    left: 50%;
+}
+
+.priceNtax {
+    text-align: center;
+    margin: 1rem;
 }
 
 .price {
-    text-align: center;
 }
 
 .largePrice {
+    font-size: 2rem;
+}
+
+.tax {
+    color: var(--light-gray);
+}
+
+.highSpeed {
+    font-size: 2rem;
+    margin-bottom: 0.3rem;
+}
+
+.afterHighSpeed {
+    margin-bottom: 1.3rem;
+    font-size: 0.9rem;
+}
+
+.priority svg,
+.hotspot svg,
+.streaming svg,
+.texts svg,
+.calls svg,
+.intTexts svg,
+.intCalls svg,
+.mexData svg,
+.intData svg {
+    height: 15px;
+    margin-right: 5px;
+}
+
+.priority,
+.hotspot,
+.streaming,
+.texts,
+.calls,
+.intTexts,
+.intCalls,
+.mexData,
+.intData {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.9rem;
+    margin: 0.4rem;
+}
+
+.priority {
+}
+
+.hotspot {
+}
+
+.streaming {
+    margin-bottom: 1.9rem;
+}
+
+.streaming::after {
+    content: "";
+    width: 90%;
+    position: absolute;
+    background-color: lightgray;
+    height: 2px;
+    bottom: 240px;
+    transform: translateX(-50%);
+    left: 50%;
+}
+
+.texts {
+}
+
+.calls {
+    margin-bottom: 1.8rem;
+}
+
+.calls::after {
+    content: "";
+    width: 90%;
+    position: absolute;
+    background-color: lightgray;
+    height: 2px;
+    bottom: 174px;
+    transform: translateX(-50%);
+    left: 50%;
+}
+
+.intTexts {
+}
+
+.intCalls {
+}
+
+.mexData {
+}
+
+.intData {
+}
+
+.linkBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+    background-color: white;
+    border: var(--border);
+    border-radius: 10px;
+    margin: 0 auto;
+    padding: 10px;
+    background-color: #ebebeb;
+    position: absolute;
+    bottom: 10px;
+    left: 11px;
+}
+
+.linkBtn:hover {
+    background-color: #ffffff;
+    cursor: pointer;
+    box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.8);
+}
+
+.linkBtn svg {
+    color: black;
+}
+
+.planLink {
+    text-decoration: none;
+    font-family: var(--primary-font);
+    color: black;
+    margin: 0.5rem;
 }
 
 #loadBtn {

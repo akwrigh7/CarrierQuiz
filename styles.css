@@ -799,6 +799,7 @@ header {
     border-radius: 10px;
     margin-top: 2rem;
     padding: 10px 20px;
+    color: black;
 }
 
 #loadBtn:hover {
@@ -838,6 +839,9 @@ header {
     #question {
         font-size: 2rem;
         margin: 2rem;
+    }
+
+    #questions {
         height: 95%;
     }
 

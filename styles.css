@@ -258,7 +258,7 @@ header {
     background-color: var(--light-purple);
     border-radius: 20px;
     width: 80%;
-    height: 95%;
+    height: 85%;
     max-width: 1000px;
     max-height: 1150px;
     text-align: center;
@@ -268,8 +268,9 @@ header {
 #questionsWrapper {
     height: 100vh;
     display: none;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
+    margin-top: 20px;
 }
 
 .hidden {
@@ -329,6 +330,7 @@ header {
     margin-top: 6%;
     font-size: 1rem;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    color: #000000;
 }
 
 #next svg {
@@ -355,6 +357,7 @@ header {
     padding: 4%;
     margin-top: 6%;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    color: #000000;
 }
 
 #restart svg {

@@ -838,6 +838,7 @@ header {
     #question {
         font-size: 2rem;
         margin: 2rem;
+        height: 95%;
     }
 
     #answers {

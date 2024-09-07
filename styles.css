@@ -190,7 +190,7 @@ header {
     margin: 0 auto;
     padding: 3rem;
     min-width: 130px;
-    background: #1c1f2b;
+    background: var(--light-purple);
     text-align: center;
     border-radius: 10px;
     position: relative;
@@ -421,7 +421,7 @@ header {
 
 #plansWrapper {
     /* change */
-    display: flex;
+    display: none;
     align-items: center;
     justify-content: center;
     flex-direction: column;
@@ -429,7 +429,7 @@ header {
 
 #planHead {
     /* change */
-    display: block;
+    display: none;
     background: var(--background-gradient);
     font-size: 2rem;
     text-align: center;
@@ -448,14 +448,20 @@ header {
     text-align: center;
     transform: translateX(-100%);
     opacity: 0;
-    animation: dropDown 0.5s forwards;
+    animation: scrollIn 0.5s forwards;
 }
 
-@keyframes dropDown {
+@keyframes scrollIn {
     to {
-        transform: translateY(0);
+        transform: translateX(0);
         opacity: 1;
     }
+}
+
+.plan.seen {
+    opacity: 1;
+    transform: translateX(0);
+    animation: none;
 }
 
 .plan:nth-child(1) {
@@ -491,7 +497,7 @@ header {
 .cardHead {
     text-align: center;
     padding: 0.8rem;
-    font-size: 1.1rem;
+    font-size: 1rem;
     font-weight: 550;
 }
 
@@ -501,6 +507,11 @@ header {
     justify-content: space-around;
     background-color: var(--dark-gray);
     padding: 0.3rem;
+}
+
+.lines svg,
+.network svg {
+    margin-right: 5px;
 }
 
 .mint {
@@ -680,7 +691,7 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     margin: 0.4rem;
 }
 
@@ -744,11 +755,12 @@ header {
     border: var(--border);
     border-radius: 10px;
     margin: 0 auto;
-    padding: 10px;
     background-color: #ebebeb;
     position: absolute;
     bottom: 10px;
     left: 11px;
+    font-size: 0.8rem;
+    text-align: left;
 }
 
 .linkBtn:hover {
@@ -759,13 +771,20 @@ header {
 
 .linkBtn svg {
     color: black;
+    position: absolute;
+    right: 9px;
+    bottom: 17px;
+    pointer-events: none;
 }
 
 .planLink {
     text-decoration: none;
     font-family: var(--primary-font);
     color: black;
-    margin: 0.5rem;
+
+    padding: 18px;
+    width: 100%;
+    height: 100%;
 }
 
 #loadBtn {

@@ -327,7 +327,7 @@ header {
     display: none;
     align-items: center;
     padding: 4%;
-    margin-top: 6%;
+
     font-size: 1rem;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     color: #000000;
@@ -355,7 +355,7 @@ header {
     display: none;
     align-items: center;
     padding: 4%;
-    margin-top: 6%;
+
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     color: #000000;
 }
@@ -378,6 +378,8 @@ header {
     display: flex;
     justify-content: space-around;
     width: 80%;
+    position: absolute;
+    bottom: 8%;
 }
 
 #progressContainer {
@@ -864,6 +866,14 @@ header {
         font-size: 1.3rem;
         margin-top: 4%;
         margin-bottom: 10%;
+    }
+
+    #otherBtns {
+        display: flex;
+        justify-content: space-around;
+        width: 80%;
+        position: relative;
+        bottom: 0;
     }
 
     #planHead {

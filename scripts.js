@@ -132,11 +132,13 @@ async function fetchQuestions() {
     
 
     function sortPlans(){
+        let allPlans = plansData;
 
+        return plansData;
     }
 
 
-    let sortedPlans = plansData;
+    let sortedPlans = sortPlans();
     console.log(sortedPlans);
     let plansIndex = 0;
     let addMore = 4;

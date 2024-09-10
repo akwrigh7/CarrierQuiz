@@ -847,6 +847,11 @@ header {
         height: 95%;
     }
 
+    #questionsWrapper {
+        align-items: center;
+        margin: 0;
+    }
+
     #answers {
         display: grid;
         grid-template-columns: 1fr 1fr;

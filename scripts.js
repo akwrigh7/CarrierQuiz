@@ -223,12 +223,6 @@ async function fetchQuestions() {
               </svg></button>
             </div>`;
             recommendedPlans.innerHTML += currentPlan;
-            let seenPlans = document.getElementsByClassName("plan");
-            for (let i = 0; i < seenPlans.length; i++){
-                setTimeout(() => {
-                    seenPlans[i].classList.add("seen");
-                }, 2000);
-            }
         }
         plansIndex += 4;
         if(plansIndex > sortedPlans.length){

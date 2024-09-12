@@ -494,6 +494,38 @@ header {
     animation-delay: 1.5s;
 }
 
+.plan:nth-child(9) {
+    animation-delay: 1.7s;
+}
+
+.plan:nth-child(10) {
+    animation-delay: 1.9s;
+}
+
+.plan:nth-child(11) {
+    animation-delay: 2.1s;
+}
+
+.plan:nth-child(12) {
+    animation-delay: 2.3s;
+}
+
+.plan:nth-child(13) {
+    animation-delay: 2.5s;
+}
+
+.plan:nth-child(14) {
+    animation-delay: 2.7s;
+}
+
+.plan:nth-child(15) {
+    animation-delay: 2.9s;
+}
+
+.plan:nth-child(16) {
+    animation-delay: 3.1s;
+}
+
 .plan svg {
     height: 20px;
     width: auto;
@@ -567,8 +599,32 @@ header {
     background-color: #ff7526;
 }
 
+.cricket {
+    background-color: #5fa62e;
+}
+
+.ultra {
+    background-color: #6e32a0;
+}
+
+.mobileX {
+    background-color: #50f40d;
+}
+
+.mobileXBorder {
+    border: 2px solid #50f40d;
+}
+
+.ultraBorder {
+    border: 2px solid #6e32a0;
+}
+
 .mintBorder {
     border: 2px solid #68af85;
+}
+
+.cricketBorder {
+    border: 2px solid #5fa62e;
 }
 
 .visibleBorder {

@@ -281,6 +281,9 @@ async function fetchQuestions() {
         // plansWrapper.style.display = "none";
         // planHead.style.display = "none";
     })
+
+
+    document.getElementById("year").textContent = new Date().getFullYear();
 }
 
 fetchQuestions();

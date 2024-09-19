@@ -603,11 +603,11 @@ header {
 }
 
 .mobileX {
-    background-color: #50f40d;
+    background-color: #2d9f00;
 }
 
 .mobileXBorder {
-    border: 2px solid #50f40d;
+    border: 2px solid #2d9f00;
 }
 
 .ultraBorder {
@@ -892,6 +892,12 @@ header {
     transform: translateY(-10px);
     box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.8);
     cursor: pointer;
+}
+
+footer {
+    text-align: center;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
 }
 
 @media screen and (min-width: 768px) {

@@ -26,127 +26,176 @@ async function fetchQuestions() {
     
 
     // PUT COMPLETED LOADING HERE
-    console.log(JSON.stringify(questionsData, null, 2));
-    console.log(JSON.stringify(plansData, null, 2));
+    // console.log(JSON.stringify(questionsData, null, 2));
+    // console.log(JSON.stringify(plansData, null, 2));
 
     
-    let num = 0;
-    let header = document.getElementById("header");
-    let questionsWrapper = document.getElementById("questionsWrapper");
-    let plansWrapper = document.getElementById("plansWrapper");
-    let introText = document.getElementsByClassName("introText");
+    // let num = 0;
+    // let header = document.getElementById("header");
+    // let questionsWrapper = document.getElementById("questionsWrapper");
+    // let plansWrapper = document.getElementById("plansWrapper");
+    // let introText = document.getElementsByClassName("introText");
 
-    // Hiding the header when the start button is pressed.
-    document.getElementById("start").addEventListener("click", function () {
-        for(let intro of introText){
-            intro.style.display = "none";
-        };
-        header.style.display = "none";
-        questionsWrapper.style.display = "flex";
-        loadQuestion(num);
-    });
+    // // Hiding the header when the start button is pressed.
+    // document.getElementById("start").addEventListener("click", function () {
+    //     for(let intro of introText){
+    //         intro.style.display = "none";
+    //     };
+    //     header.style.display = "none";
+    //     questionsWrapper.style.display = "flex";
+    //     loadQuestion(num);
+    // });
 
-    let restartBtn = document.getElementById("restart");
-    let nextBtn = document.getElementById("next");
-    let answerButtons = document.querySelectorAll("#answers button");
-    answerButtons.forEach(button => {
-        button.addEventListener("click", function(){
-            answerButtons.forEach(btn => {
-                btn.classList.remove("clicked");
-            });
-            this.classList.add("clicked");
-            nextBtn.style.display = "flex";
-            restartBtn.style.display = "flex";
-            loadProgBar(num + 1);
-        });
-    });
+    // let restartBtn = document.getElementById("restart");
+    // let nextBtn = document.getElementById("next");
+    // let answerButtons = document.querySelectorAll("#answers button");
+    // answerButtons.forEach(button => {
+    //     button.addEventListener("click", function(){
+    //         answerButtons.forEach(btn => {
+    //             btn.classList.remove("clicked");
+    //         });
+    //         this.classList.add("clicked");
+    //         nextBtn.style.display = "flex";
+    //         restartBtn.style.display = "flex";
+    //         loadProgBar(num + 1);
+    //     });
+    // });
 
-    // Next button
-    let userAnswers = [];
-    let numLines;
-    nextBtn.addEventListener("click", function(){
-        nextBtn.style.display = "none";
-        restartBtn.style.display = "none";
-        answerButtons.forEach(button => {
-            if(button.classList.contains("clicked")){
-                let buttonId = parseInt(button.id);
-                userAnswers.push(buttonId);
-                console.log(userAnswers);
-                if (q.innerHTML == "How many lines do you need?"){
-                    numLines = parseInt(button.innerHTML);
-                    console.log(numLines);
-                }
-            };
-            button.classList.remove("clicked");
-        });
-        num++;
-        loadQuestion(num);
-    });
+    // // Next button
+    // let userAnswers = [];
+    // let numLines;
+    // nextBtn.addEventListener("click", function(){
+    //     nextBtn.style.display = "none";
+    //     restartBtn.style.display = "none";
+    //     answerButtons.forEach(button => {
+    //         if(button.classList.contains("clicked")){
+    //             let buttonId = parseInt(button.id);
+    //             userAnswers.push(buttonId);
+    //             console.log(userAnswers);
+    //             if (q.innerHTML == "How many lines do you need?"){
+    //                 numLines = parseInt(button.innerHTML);
+    //                 console.log(numLines);
+    //             }
+    //         };
+    //         button.classList.remove("clicked");
+    //     });
+    //     num++;
+    //     loadQuestion(num);
+    // });
 
 
-    // Restart button
-    restartBtn.addEventListener("click", function(){
-        nextBtn.style.display = "none";
-        restartBtn.style.display = "none";
-        answerButtons.forEach(button => button.classList.remove("clicked"));
-        num = 0;
-        userAnswers = [];
-        loadQuestion(num);
-        loadProgBar(num);
-    });
+    // // Restart button
+    // restartBtn.addEventListener("click", function(){
+    //     nextBtn.style.display = "none";
+    //     restartBtn.style.display = "none";
+    //     answerButtons.forEach(button => button.classList.remove("clicked"));
+    //     num = 0;
+    //     userAnswers = [];
+    //     loadQuestion(num);
+    //     loadProgBar(num);
+    // });
 
-    let a1 = document.getElementById("1");
-    let a2 = document.getElementById("2");
-    let a3 = document.getElementById("3");
-    let a4 = document.getElementById("4");
-    let questionNum = document.getElementById("questionNum");
-    let q = document.getElementById("question");
-    function loadQuestion(num){
-        if (questionsData.length < num + 1){
-            questionsWrapper.style.display = "none";
-            plansWrapper.style.display = "flex";
-            planHead.style.display = "block";
-            loadPlans();
-        } else {
-            questionNum.innerHTML = `Question ${num + 1}`;
-            q.innerHTML = questionsData[num].question;
-            a1.innerHTML = questionsData[num].a1;
-            a2.innerHTML = questionsData[num].a2;
-            a3.innerHTML = questionsData[num].a3;
-            a4.innerHTML = questionsData[num].a4;
-        }
-    }
+    // let a1 = document.getElementById("1");
+    // let a2 = document.getElementById("2");
+    // let a3 = document.getElementById("3");
+    // let a4 = document.getElementById("4");
+    // let questionNum = document.getElementById("questionNum");
+    // let q = document.getElementById("question");
+    // function loadQuestion(num){
+    //     if (questionsData.length < num + 1){
+    //         questionsWrapper.style.display = "none";
+    //         plansWrapper.style.display = "flex";
+    //         planHead.style.display = "block";
+    //         loadPlans();
+    //     } else {
+    //         questionNum.innerHTML = `Question ${num + 1}`;
+    //         q.innerHTML = questionsData[num].question;
+    //         a1.innerHTML = questionsData[num].a1;
+    //         a2.innerHTML = questionsData[num].a2;
+    //         a3.innerHTML = questionsData[num].a3;
+    //         a4.innerHTML = questionsData[num].a4;
+    //     }
+    // }
 
-    let progressBar = document.getElementById("progressBar");
-    function loadProgBar(num){
-        let widthIncrements = 100 / questionsData.length;
-        progressBar.style.width = `${num * widthIncrements}%`;
-    }
+    // let progressBar = document.getElementById("progressBar");
+    // function loadProgBar(num){
+    //     let widthIncrements = 100 / questionsData.length;
+    //     progressBar.style.width = `${num * widthIncrements}%`;
+    // }
+
 
     let recommendedPlans = document.getElementById("recommendedPlans");
-    let loadBtn = document.getElementById("loadBtn");
-    loadBtn.addEventListener("click", function(){
-        loadPlans();
+    // let networkFilter = document.getElementById("networkFilter");
+    // let typeFilter = document.getElementById("typeFilter");
+    // let companyFilter = document.getElementById("companyFilter");
+    let filterBtns = document.querySelectorAll(".filter");
+    console.log(filterBtns);
+    filterBtns.forEach(btn => {
+        btn.addEventListener("click", function(){
+            filterBtns.forEach(button => {
+                button.classList.remove("filterClick");
+            });
+            this.classList.add("filterClick");
+            console.log(this.id);
+            filterPlans(this.id);
+        });
     });
+
+    function filterPlans(filter){
+        if(filter == "allFilter"){
+            sortPlans(plansData);
+        }
+        if(filter == "verizonFilter"){
+            let verizonPlans = [];
+            
+            for(let plan of plansData){
+                if(plan.network.includes("Verizon") || plan.network.includes("Any")){
+                    verizonPlans.push(plan);
+                }
+            }
+            sortPlans(verizonPlans);
+        }
+        if(filter == "attFilter"){
+            let attPlans = [];
+            for(let plan of plansData){
+                if(plan.network.includes("AT&T") || plan.network.includes("Any")){
+                    attPlans.push(plan);
+                }
+            }
+            sortPlans(attPlans);
+        }
+        if(filter == "tmobileFilter"){
+            let tmobilePlans = [];
+            for(let plan of plansData){
+                if(plan.network.includes("T-Mobile") || plan.network.includes("Any")){
+                    tmobilePlans.push(plan);
+                }
+            }
+            sortPlans(tmobilePlans);
+        }
+        
+    }
+
+    function sortPlans(plansToSort){
+        // Change variable to empty array
+        let sorted;
+        console.log(plansToSort);
+
+        loadPlans(plansToSort);
+    }
 
     
 
-    function sortPlans(){
-        let allPlans = plansData;
-
-        return plansData;
-    }
-
-
-    let sortedPlans = sortPlans();
-    console.log(sortedPlans);
-    let plansIndex = 0;
-    let addMore = 4;
-    function loadPlans(){
-        let displayedPlans = sortedPlans.slice(plansIndex, addMore);
-        console.log(displayedPlans);
-        for(let plan of displayedPlans){
-            console.log(plan.pricePer);
+    
+    
+    // DELETE
+    let numLines = 1;
+    sortPlans(plansData);
+    // -------
+    function loadPlans(sortedPlans){
+        recommendedPlans.innerHTML = "";
+        console.log(sortedPlans);
+        for(let plan of sortedPlans){
             let currentPlan = `<div class="plan ${plan.company}Border">
             <h3 class="cardHead ${plan.company}">${plan.plan}</h3>
             <div class="subHead">
@@ -224,14 +273,14 @@ async function fetchQuestions() {
             </div>`;
             recommendedPlans.innerHTML += currentPlan;
         }
-        plansIndex += 4;
-        if(plansIndex > sortedPlans.length){
-            loadBtn.style.display = "none";
-        }
-        addMore += 4;
-        console.log(plansIndex);
     }
-  }
-  
-  fetchQuestions();
 
+    document.getElementById("newQuiz").addEventListener("click", () => {
+        console.log("hello");
+        // header.style.display = "flex";
+        // plansWrapper.style.display = "none";
+        // planHead.style.display = "none";
+    })
+}
+
+fetchQuestions();

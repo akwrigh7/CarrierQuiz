@@ -17,7 +17,7 @@
         <title>The Carrier Quiz</title>
     </head>
     <body>
-        <header id="header">
+        <!-- <header id="header">
             <div class="introText">Looking for a phone plan?</div>
             <section id="heading">
                 <h1>Welcome</h1>
@@ -77,11 +77,17 @@
                         <div id="progressBar"></div>
                     </div>
                 </section>
-            </div>
+            </div> -->
             <h2 id="planHead">Your Plans</h2>
             <div id="plansWrapper">
+                <div id="filterWrapper">
+                    <button id="allFilter" class="filter">Show All</button>
+                    <button id="verizonFilter" class="filter">Verizon</button>
+                    <button id="attFilter" class="filter">AT&T</button>
+                    <button id="tmobileFilter" class="filter">T-Mobile</button>
+                </div>
                 <div id="recommendedPlans"></div>
-                <button id="loadBtn">Load More</button>
+                <button id="newQuiz">Take Quiz Again</button>
             </div>
         </main>
     </body>

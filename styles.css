@@ -140,6 +140,7 @@ table {
     --light-purple: rgb(67, 67, 67);
     --dark-gray: #292929;
     --light-gray: #a7a7a7;
+    --white: #ffffff;
 }
 
 html {
@@ -421,12 +422,12 @@ header {
     height: 100%;
     justify-content: center;
     flex-wrap: wrap;
-    margin-top: 1.5rem;
+    margin-top: 1rem;
 }
 
 #plansWrapper {
     /* change */
-    display: none;
+    display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
@@ -434,7 +435,7 @@ header {
 
 #planHead {
     /* change */
-    display: none;
+    display: block;
     background: var(--background-gradient);
     font-size: 2rem;
     text-align: center;
@@ -461,12 +462,6 @@ header {
         transform: translateX(0);
         opacity: 1;
     }
-}
-
-.plan.seen {
-    opacity: 1;
-    transform: translateX(0);
-    animation: none;
 }
 
 .plan:nth-child(1) {
@@ -848,7 +843,7 @@ header {
     height: 100%;
 }
 
-#loadBtn {
+#newQuiz {
     font-family: var(--primary-font);
     text-align: center;
     border: var(--border);
@@ -858,14 +853,45 @@ header {
     margin-top: 2rem;
     padding: 10px 20px;
     color: black;
+    margin-bottom: 1.5rem;
 }
 
-#loadBtn:hover {
-    background-color: var(--background-color);
+#newQuiz:hover {
+    background: var(--background-gradient);
     color: white;
     cursor: pointer;
     box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.8);
     transform: translateY(-10px);
+}
+
+#filterWrapper {
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.filter {
+    height: 60px;
+    width: 150px;
+    background: var(--white);
+    border-radius: 10px;
+    border: none;
+    transition: 0.3s all ease;
+    font-family: var(--primary-font);
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 20px;
+    font-size: 1rem;
+}
+
+.filterClick {
+    color: var(--text-color);
+    background: var(--background-gradient);
+}
+
+.filter:hover {
+    transform: translateY(-10px);
+    box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.8);
+    cursor: pointer;
 }
 
 @media screen and (min-width: 768px) {

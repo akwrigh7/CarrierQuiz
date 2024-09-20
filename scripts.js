@@ -4,8 +4,7 @@ const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZS
 const database = supabase.createClient(supabaseUrl, supabaseKey)
 
 async function fetchQuestions() {
-    // PUT LOADING ANIMATION HERE
-
+    // Gather data from Supabase for both tables
     let { data: questionsData, error: questionsError } = await database
       .from("questions")
       .select("*");
@@ -23,13 +22,7 @@ async function fetchQuestions() {
       console.error('Error fetching question data:', plansError);
       return;
     }
-    
 
-    // PUT COMPLETED LOADING HERE
-    // console.log(JSON.stringify(questionsData, null, 2));
-    // console.log(JSON.stringify(plansData, null, 2));
-
-    
     // let num = 0;
     // let header = document.getElementById("header");
     // let questionsWrapper = document.getElementById("questionsWrapper");

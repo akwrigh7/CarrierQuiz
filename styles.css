@@ -420,7 +420,7 @@ header {
 
 #plansWrapper {
     /* change */
-    display: flex;
+    display: none;
     align-items: center;
     justify-content: center;
     flex-direction: column;
@@ -428,7 +428,7 @@ header {
 
 #planHead {
     /* change */
-    display: block;
+    display: none;
     background: var(--background-gradient);
     font-size: 2rem;
     text-align: center;
@@ -512,6 +512,38 @@ header {
 
 .plan:nth-child(16) {
     animation-delay: 3.1s;
+}
+
+.plan:nth-child(17) {
+    animation-delay: 3.3s;
+}
+
+.plan:nth-child(18) {
+    animation-delay: 3.5s;
+}
+
+.plan:nth-child(19) {
+    animation-delay: 3.7s;
+}
+
+.plan:nth-child(20) {
+    animation-delay: 3.9s;
+}
+
+.plan:nth-child(21) {
+    animation-delay: 4.1s;
+}
+
+.plan:nth-child(22) {
+    animation-delay: 4.3s;
+}
+
+.plan:nth-child(23) {
+    animation-delay: 4.5s;
+}
+
+.plan:nth-child(24) {
+    animation-delay: 4.7s;
 }
 
 .plan svg {
@@ -870,6 +902,7 @@ footer {
     text-align: center;
     margin-top: 2rem;
     margin-bottom: 1rem;
+    display: none;
 }
 
 @media screen and (min-width: 768px) {

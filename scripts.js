@@ -23,98 +23,100 @@ async function fetchQuestions() {
       return;
     }
 
-    // let num = 0;
-    // let header = document.getElementById("header");
-    // let questionsWrapper = document.getElementById("questionsWrapper");
-    // let plansWrapper = document.getElementById("plansWrapper");
-    // let introText = document.getElementsByClassName("introText");
+    let num = 0;
+    let header = document.getElementById("header");
+    let questionsWrapper = document.getElementById("questionsWrapper");
+    let plansWrapper = document.getElementById("plansWrapper");
+    let introText = document.getElementsByClassName("introText");
+    let footer = document.getElementById("footer");
 
-    // // Hiding the header when the start button is pressed.
-    // document.getElementById("start").addEventListener("click", function () {
-    //     for(let intro of introText){
-    //         intro.style.display = "none";
-    //     };
-    //     header.style.display = "none";
-    //     questionsWrapper.style.display = "flex";
-    //     loadQuestion(num);
-    // });
+    // Hiding the header when the start button is pressed.
+    document.getElementById("start").addEventListener("click", function () {
+        for(let intro of introText){
+            intro.style.display = "none";
+        };
+        header.style.display = "none";
+        questionsWrapper.style.display = "flex";
+        loadQuestion(num);
+    });
 
-    // let restartBtn = document.getElementById("restart");
-    // let nextBtn = document.getElementById("next");
-    // let answerButtons = document.querySelectorAll("#answers button");
-    // answerButtons.forEach(button => {
-    //     button.addEventListener("click", function(){
-    //         answerButtons.forEach(btn => {
-    //             btn.classList.remove("clicked");
-    //         });
-    //         this.classList.add("clicked");
-    //         nextBtn.style.display = "flex";
-    //         restartBtn.style.display = "flex";
-    //         loadProgBar(num + 1);
-    //     });
-    // });
+    let restartBtn = document.getElementById("restart");
+    let nextBtn = document.getElementById("next");
+    let answerButtons = document.querySelectorAll("#answers button");
+    answerButtons.forEach(button => {
+        button.addEventListener("click", function(){
+            answerButtons.forEach(btn => {
+                btn.classList.remove("clicked");
+            });
+            this.classList.add("clicked");
+            nextBtn.style.display = "flex";
+            restartBtn.style.display = "flex";
+            loadProgBar(num + 1);
+        });
+    });
 
-    // // Next button
-    // let userAnswers = [];
-    // let numLines;
-    // nextBtn.addEventListener("click", function(){
-    //     nextBtn.style.display = "none";
-    //     restartBtn.style.display = "none";
-    //     answerButtons.forEach(button => {
-    //         if(button.classList.contains("clicked")){
-    //             let buttonId = parseInt(button.id);
-    //             userAnswers.push(buttonId);
-    //             console.log(userAnswers);
-    //             if (q.innerHTML == "How many lines do you need?"){
-    //                 numLines = parseInt(button.innerHTML);
-    //                 console.log(numLines);
-    //             }
-    //         };
-    //         button.classList.remove("clicked");
-    //     });
-    //     num++;
-    //     loadQuestion(num);
-    // });
+    // Next button
+    let userAnswers = [];
+    let numLines;
+    nextBtn.addEventListener("click", function(){
+        nextBtn.style.display = "none";
+        restartBtn.style.display = "none";
+        answerButtons.forEach(button => {
+            if(button.classList.contains("clicked")){
+                let buttonId = parseInt(button.id);
+                userAnswers.push(buttonId);
+                console.log(userAnswers);
+                if (q.innerHTML == "How many lines do you need?"){
+                    numLines = parseInt(button.innerHTML);
+                    console.log(numLines);
+                }
+            };
+            button.classList.remove("clicked");
+        });
+        num++;
+        loadQuestion(num);
+    });
 
 
-    // // Restart button
-    // restartBtn.addEventListener("click", function(){
-    //     nextBtn.style.display = "none";
-    //     restartBtn.style.display = "none";
-    //     answerButtons.forEach(button => button.classList.remove("clicked"));
-    //     num = 0;
-    //     userAnswers = [];
-    //     loadQuestion(num);
-    //     loadProgBar(num);
-    // });
+    // Restart button
+    restartBtn.addEventListener("click", function(){
+        nextBtn.style.display = "none";
+        restartBtn.style.display = "none";
+        answerButtons.forEach(button => button.classList.remove("clicked"));
+        num = 0;
+        userAnswers = [];
+        loadQuestion(num);
+        loadProgBar(num);
+    });
 
-    // let a1 = document.getElementById("1");
-    // let a2 = document.getElementById("2");
-    // let a3 = document.getElementById("3");
-    // let a4 = document.getElementById("4");
-    // let questionNum = document.getElementById("questionNum");
-    // let q = document.getElementById("question");
-    // function loadQuestion(num){
-    //     if (questionsData.length < num + 1){
-    //         questionsWrapper.style.display = "none";
-    //         plansWrapper.style.display = "flex";
-    //         planHead.style.display = "block";
-    //         loadPlans();
-    //     } else {
-    //         questionNum.innerHTML = `Question ${num + 1}`;
-    //         q.innerHTML = questionsData[num].question;
-    //         a1.innerHTML = questionsData[num].a1;
-    //         a2.innerHTML = questionsData[num].a2;
-    //         a3.innerHTML = questionsData[num].a3;
-    //         a4.innerHTML = questionsData[num].a4;
-    //     }
-    // }
+    let a1 = document.getElementById("1");
+    let a2 = document.getElementById("2");
+    let a3 = document.getElementById("3");
+    let a4 = document.getElementById("4");
+    let questionNum = document.getElementById("questionNum");
+    let q = document.getElementById("question");
+    function loadQuestion(num){
+        if (questionsData.length < num + 1){
+            questionsWrapper.style.display = "none";
+            plansWrapper.style.display = "flex";
+            planHead.style.display = "block";
+            footer.style.display = "block";
+            sortPlans(plansData);
+        } else {
+            questionNum.innerHTML = `Question ${num + 1}`;
+            q.innerHTML = questionsData[num].question;
+            a1.innerHTML = questionsData[num].a1;
+            a2.innerHTML = questionsData[num].a2;
+            a3.innerHTML = questionsData[num].a3;
+            a4.innerHTML = questionsData[num].a4;
+        }
+    }
 
-    // let progressBar = document.getElementById("progressBar");
-    // function loadProgBar(num){
-    //     let widthIncrements = 100 / questionsData.length;
-    //     progressBar.style.width = `${num * widthIncrements}%`;
-    // }
+    let progressBar = document.getElementById("progressBar");
+    function loadProgBar(num){
+        let widthIncrements = 100 / questionsData.length;
+        progressBar.style.width = `${num * widthIncrements}%`;
+    }
 
 
     let recommendedPlans = document.getElementById("recommendedPlans");
@@ -170,20 +172,34 @@ async function fetchQuestions() {
     }
 
     function sortPlans(plansToSort){
-        // Change variable to empty array
         let sorted;
-        console.log(plansToSort);
 
-        loadPlans(plansToSort);
+        // Loop over each plan
+        for(let plan of plansToSort){
+            let comparison = [];
+            console.log(plan);
+            // For each plan, subtract the users answers from the score of the plan and add the difference to a new array
+            for(let i = 0; i < plan.score.length; i++){
+                let subtraction = Math.abs(userAnswers[i + 1] - parseInt(plan.score[i]));
+                comparison.push(subtraction);
+            }
+            // Add together all of the subtractions for each plan
+            let total = 0;
+            for(let i = 0; i < comparison.length; i++){
+                total += comparison[i];
+                plan.total = total;
+            }
+            console.log(plan.total);
+            console.log(comparison);
+        }
+        
+        // Sort plans in ascending order
+        sorted = plansToSort.sort((a, b) => a.total - b.total);
+        console.log(sorted);
+
+        loadPlans(sorted);
     }
 
-    
-
-    
-    
-    // DELETE
-    let numLines = 1;
-    sortPlans(plansData);
     // -------
     function loadPlans(sortedPlans){
         recommendedPlans.innerHTML = "";
@@ -269,13 +285,20 @@ async function fetchQuestions() {
     }
 
     document.getElementById("newQuiz").addEventListener("click", () => {
-        console.log("hello");
-        // header.style.display = "flex";
-        // plansWrapper.style.display = "none";
-        // planHead.style.display = "none";
+        header.style.display = "flex";
+        for(let intro of introText){
+            intro.style.display = "flex";
+        };
+        plansWrapper.style.display = "none";
+        planHead.style.display = "none";
+        footer.style.display = "none";
+        userAnswers = [];
+        recommendedPlans.innerHTML = "";
+        num = 0;
+        progressBar.style.width = "0";
     })
 
-
+    // Update copyright date
     document.getElementById("year").textContent = new Date().getFullYear();
 }
 

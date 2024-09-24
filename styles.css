@@ -726,9 +726,6 @@ header {
     margin: 1rem;
 }
 
-.price {
-}
-
 .largePrice {
     font-size: 2rem;
 }
@@ -978,12 +975,7 @@ footer {
         font-size: 3.5rem;
         padding: 2rem;
     }
-
-    #recommendedPlans {
-    }
 }
 
 @media screen and (min-width: 1080px) {
-    #recommendedPlans {
-    }
 }

@@ -115,14 +115,20 @@ async function fetchQuestions() {
     let a4 = document.getElementById("4");
     let questionNum = document.getElementById("questionNum");
     let q = document.getElementById("question");
+    // Load question
     function loadQuestion(num){
+        // If no more questions remain:
         if (questionsData.length < num + 1){
+            // Hide questions section and unhide plans section
             questionsWrapper.style.display = "none";
             plansWrapper.style.display = "flex";
             planHead.style.display = "block";
             footer.style.display = "block";
+            // Sort all of the plans
             sortPlans(plansData);
+        // If there are still unanswered questions:
         } else {
+            // Update the question and its options to the page
             questionNum.innerHTML = `Question ${num + 1}`;
             q.innerHTML = questionsData[num].question;
             a1.innerHTML = questionsData[num].a1;
@@ -133,33 +139,37 @@ async function fetchQuestions() {
     }
 
     let progressBar = document.getElementById("progressBar");
+    // Progress bar
     function loadProgBar(num){
+        // Set the width of the progress bar using the question the user is currently on
         let widthIncrements = 100 / questionsData.length;
         progressBar.style.width = `${num * widthIncrements}%`;
     }
 
 
     let recommendedPlans = document.getElementById("recommendedPlans");
-    // let networkFilter = document.getElementById("networkFilter");
-    // let typeFilter = document.getElementById("typeFilter");
-    // let companyFilter = document.getElementById("companyFilter");
     let filterBtns = document.querySelectorAll(".filter");
-    console.log(filterBtns);
+    // Loop over filter buttons and listen for click
     filterBtns.forEach(btn => {
         btn.addEventListener("click", function(){
+            // Remove the clicked state from each filter button
             filterBtns.forEach(button => {
                 button.classList.remove("filterClick");
             });
+            // Add the clicked state to the button that has just been pressed
             this.classList.add("filterClick");
-            console.log(this.id);
+            // Filter the plans based upon the button clicked
             filterPlans(this.id);
         });
     });
 
+    // Filter
     function filterPlans(filter){
+        // Display all sorted plans
         if(filter == "allFilter"){
             sortPlans(plansData);
         }
+        // Display only plans that include Verizon for coverage
         if(filter == "verizonFilter"){
             let verizonPlans = [];
             
@@ -170,6 +180,7 @@ async function fetchQuestions() {
             }
             sortPlans(verizonPlans);
         }
+        // Display only plans that include AT&T for coverage
         if(filter == "attFilter"){
             let attPlans = [];
             for(let plan of plansData){
@@ -179,6 +190,7 @@ async function fetchQuestions() {
             }
             sortPlans(attPlans);
         }
+        // Display only plans that include T-Mobile for coverage
         if(filter == "tmobileFilter"){
             let tmobilePlans = [];
             for(let plan of plansData){
@@ -193,7 +205,6 @@ async function fetchQuestions() {
 
     function sortPlans(plansToSort){
         let sorted;
-
         // Loop over each plan
         for(let plan of plansToSort){
             let comparison = [];
@@ -204,6 +215,7 @@ async function fetchQuestions() {
                 comparison.push(subtraction);
             }
             // Add together all of the subtractions for each plan
+            // The lower the total, the closer the match is to the user's answers
             let total = 0;
             for(let i = 0; i < comparison.length; i++){
                 total += comparison[i];
@@ -212,11 +224,9 @@ async function fetchQuestions() {
             console.log(plan.total);
             console.log(comparison);
         }
-        
-        // Sort plans in ascending order
+        // Sort plans in descending order so that the plan with the lowest total displays first
         sorted = plansToSort.sort((a, b) => a.total - b.total);
-        console.log(sorted);
-
+        // Display the sorted plans to the page
         loadPlans(sorted);
     }
 

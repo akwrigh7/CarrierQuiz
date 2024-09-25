@@ -4,87 +4,107 @@ const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZS
 const database = supabase.createClient(supabaseUrl, supabaseKey)
 
 async function fetchQuestions() {
-    // Gather data from Supabase for both tables
+    // Gather data from Supabase for questions table
     let { data: questionsData, error: questionsError } = await database
       .from("questions")
       .select("*");
 
+    // Handle retrieval error
     if (questionsError) {
       console.error('Error fetching question data:', questionsError);
       return;
     }
 
+    // Gather data from Supabase for plans table
     let { data: plansData, error: plansError } = await database
       .from("plans")
       .select("*");
 
+    // Handle retrieval error
     if (plansError) {
       console.error('Error fetching question data:', plansError);
       return;
     }
 
-    let num = 0;
     let header = document.getElementById("header");
     let questionsWrapper = document.getElementById("questionsWrapper");
     let plansWrapper = document.getElementById("plansWrapper");
     let introText = document.getElementsByClassName("introText");
     let footer = document.getElementById("footer");
 
-    // Hiding the header when the start button is pressed.
+    // Hiding the header when the start button is pressed
     document.getElementById("start").addEventListener("click", function () {
         for(let intro of introText){
             intro.style.display = "none";
         };
         header.style.display = "none";
+        // Display questions section and load the first question
         questionsWrapper.style.display = "flex";
         loadQuestion(num);
     });
 
-    let restartBtn = document.getElementById("restart");
-    let nextBtn = document.getElementById("next");
+    let num = 0;
     let answerButtons = document.querySelectorAll("#answers button");
+
+    // Handle button presses to allow only one button to be pressed at a time
     answerButtons.forEach(button => {
         button.addEventListener("click", function(){
+            // When a button is pressed, removed the clicked state from all other buttons
             answerButtons.forEach(btn => {
                 btn.classList.remove("clicked");
             });
+            // Add the class back to the button currently being pressed
             this.classList.add("clicked");
+            // Display both restart and next buttons when user has selected an answer
             nextBtn.style.display = "flex";
             restartBtn.style.display = "flex";
+            // Update the progress bar after user chooses an answer
             loadProgBar(num + 1);
         });
     });
 
-    // Next button
     let userAnswers = [];
     let numLines;
+    let nextBtn = document.getElementById("next");
+    // Next button
     nextBtn.addEventListener("click", function(){
+        // When the next button is pressed, hide both the next and restart buttons
         nextBtn.style.display = "none";
         restartBtn.style.display = "none";
+        // Loop through each answer button
         answerButtons.forEach(button => {
+            // If the button is clicked, capture the ID of that button and push it into the userAnswers array
             if(button.classList.contains("clicked")){
                 let buttonId = parseInt(button.id);
                 userAnswers.push(buttonId);
                 console.log(userAnswers);
+                // If the current question is about the number of lines, assign the user's choice to numLines
                 if (q.innerHTML == "How many lines do you need?"){
                     numLines = parseInt(button.innerHTML);
                     console.log(numLines);
                 }
             };
+            // Remove the clicked state from the button
             button.classList.remove("clicked");
         });
+        // Increment num and load the next question
         num++;
         loadQuestion(num);
     });
 
+    let restartBtn = document.getElementById("restart");
 
     // Restart button
     restartBtn.addEventListener("click", function(){
+        // Hide restart and next buttons when pressed
         nextBtn.style.display = "none";
         restartBtn.style.display = "none";
+        // Remove the clicked state from every button
         answerButtons.forEach(button => button.classList.remove("clicked"));
+        // Reset key variables
         num = 0;
         userAnswers = [];
+        // Reset questions and progress bar status
         loadQuestion(num);
         loadProgBar(num);
     });

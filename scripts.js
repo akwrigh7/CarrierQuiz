@@ -146,7 +146,6 @@ async function fetchQuestions() {
         progressBar.style.width = `${num * widthIncrements}%`;
     }
 
-
     let recommendedPlans = document.getElementById("recommendedPlans");
     let filterBtns = document.querySelectorAll(".filter");
     // Loop over filter buttons and listen for click
@@ -172,35 +171,39 @@ async function fetchQuestions() {
         // Display only plans that include Verizon for coverage
         if(filter == "verizonFilter"){
             let verizonPlans = [];
-            
+            // If the current plan includes the selected coverage, add it to the array
             for(let plan of plansData){
                 if(plan.network.includes("Verizon") || plan.network.includes("Any")){
                     verizonPlans.push(plan);
                 }
             }
+            // Sort the new coverage array
             sortPlans(verizonPlans);
         }
         // Display only plans that include AT&T for coverage
         if(filter == "attFilter"){
             let attPlans = [];
+            // If the current plan includes the selected coverage, add it to the array
             for(let plan of plansData){
                 if(plan.network.includes("AT&T") || plan.network.includes("Any")){
                     attPlans.push(plan);
                 }
             }
+            // Sort the new coverage array
             sortPlans(attPlans);
         }
         // Display only plans that include T-Mobile for coverage
         if(filter == "tmobileFilter"){
             let tmobilePlans = [];
+            // If the current plan includes the selected coverage, add it to the array
             for(let plan of plansData){
                 if(plan.network.includes("T-Mobile") || plan.network.includes("Any")){
                     tmobilePlans.push(plan);
                 }
             }
+            // Sort the new coverage array
             sortPlans(tmobilePlans);
         }
-        
     }
 
     function sortPlans(plansToSort){
@@ -209,9 +212,11 @@ async function fetchQuestions() {
         for(let plan of plansToSort){
             let comparison = [];
             console.log(plan);
-            // For each plan, subtract the users answers from the score of the plan and add the difference to a new array
+            // For each plan, subtract the users answers from the score of the current plan and add the difference to a new array
             for(let i = 0; i < plan.score.length; i++){
+                // Use the absolute value of the comparison
                 let subtraction = Math.abs(userAnswers[i + 1] - parseInt(plan.score[i]));
+                // Add the comparison to the array
                 comparison.push(subtraction);
             }
             // Add together all of the subtractions for each plan
@@ -222,7 +227,6 @@ async function fetchQuestions() {
                 plan.total = total;
             }
             console.log(plan.total);
-            console.log(comparison);
         }
         // Sort plans in descending order so that the plan with the lowest total displays first
         sorted = plansToSort.sort((a, b) => a.total - b.total);
@@ -230,10 +234,14 @@ async function fetchQuestions() {
         loadPlans(sorted);
     }
 
-    // -------
     function loadPlans(sortedPlans){
+        // Clear the previously displayed plans
         recommendedPlans.innerHTML = "";
         console.log(sortedPlans);
+        for (let p of sortedPlans){
+            console.log(p.total);
+        }
+        // Display each plan to the page
         for(let plan of sortedPlans){
             let currentPlan = `<div class="plan ${plan.company}Border">
             <h3 class="cardHead ${plan.company}">${plan.plan}</h3>
@@ -314,7 +322,9 @@ async function fetchQuestions() {
         }
     }
 
+    // Start new quiz
     document.getElementById("newQuiz").addEventListener("click", () => {
+        // Reset all default values and hide the plan and question sections
         header.style.display = "flex";
         for(let intro of introText){
             intro.style.display = "flex";

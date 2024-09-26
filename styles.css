@@ -279,7 +279,7 @@ header {
 }
 
 #question {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     margin: 1rem;
 }
 
@@ -925,13 +925,13 @@ footer {
     }
 
     #questions h2 {
-        font-size: 3rem;
-        padding: 1.5rem;
+        font-size: 2.3rem;
+        padding: 1.3rem;
     }
 
     #question {
         font-size: 2rem;
-        margin: 2rem;
+        margin: 1.5rem;
     }
 
     #questions {

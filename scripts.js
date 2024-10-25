@@ -7,7 +7,8 @@ async function fetchQuestions() {
     // Gather data from Supabase for questions table
     let { data: questionsData, error: questionsError } = await database
       .from("questions")
-      .select("*");
+      .select("*")
+      .order("id", { ascending: true });
 
     // Handle retrieval error
     if (questionsError) {
@@ -117,6 +118,7 @@ async function fetchQuestions() {
     let q = document.getElementById("question");
     // Load question
     function loadQuestion(num){
+        console.log("this is num" + num);
         // If no more questions remain:
         if (questionsData.length < num + 1){
             // Hide questions section and unhide plans section

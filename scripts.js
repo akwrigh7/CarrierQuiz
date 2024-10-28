@@ -166,6 +166,7 @@ async function fetchQuestions() {
 
     // Filter
     function filterPlans(filter){
+        currentPage = 1;
         // Display all sorted plans
         if(filter == "allFilter"){
             sortPlans(plansData);
@@ -206,10 +207,12 @@ async function fetchQuestions() {
             // Sort the new coverage array
             sortPlans(tmobilePlans);
         }
+        console.log(sorted);
     }
 
+    let sorted;
+
     function sortPlans(plansToSort){
-        let sorted;
         // Loop over each plan
         for(let plan of plansToSort){
             let comparison = [];
@@ -405,13 +408,33 @@ async function fetchQuestions() {
         //     </div>`;
         //     recommendedPlans.innerHTML += currentPlan;
         // }
+        console.log(totalPages);
         loadPageButtons(totalPages);
     }
 
-    
-
     function loadPageButtons(totalPages){
-
+        // Get button container and set it empty
+        let pageButtons = document.getElementById("pageButtons");
+        pageButtons.innerHTML = "";
+        // For each page, create a button
+        for(let i = 1; i <= totalPages; i++){
+            const pageBtn = document.createElement("button");
+            pageBtn.classList.add("pageBtns");
+            // If the current button's number is the same as the current page number, set the button's status to "clicked"
+            if(i === currentPage){
+                pageBtn.classList.add("pageBtnClick");
+            }
+            // Set the text of each button
+            pageBtn.textContent = `${i}`;
+            // When a page button is pressed, set the current page to the number of the button being pressed
+            // Reload the plans to display the correct 4
+            pageBtn.addEventListener("click", () => {
+                currentPage = i;
+                loadPlans(sorted);
+            });
+            // Add the button to the page
+            pageButtons.appendChild(pageBtn);
+        }
     }
 
     // Start new quiz
@@ -428,6 +451,7 @@ async function fetchQuestions() {
         recommendedPlans.innerHTML = "";
         num = 0;
         progressBar.style.width = "0";
+        currentPage = 1;
     })
 
     // Update copyright date

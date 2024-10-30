@@ -45,7 +45,7 @@ async function fetchQuestions() {
         loadQuestion(num);
     });
 
-    let num = 11;
+    let num = 0;
     let answerButtons = document.querySelectorAll("#answers button");
 
     // Handle button presses to allow only one button to be pressed at a time
@@ -129,6 +129,9 @@ async function fetchQuestions() {
             footer.style.display = "block";
             // Sort all of the plans
             sortPlans(plansData);
+            // Set local storage to users answers
+            localStorage.setItem("previousAnswers", JSON.stringify(userAnswers));
+            console.log(localStorage.getItem("previousAnswers"));
         // If there are still unanswered questions:
         } else {
             // Update the question and its options to the page
@@ -210,9 +213,7 @@ async function fetchQuestions() {
         }
         console.log(sorted);
     }
-
     let sorted;
-
     function sortPlans(plansToSort){
         // Loop over each plan
         for(let plan of plansToSort){
@@ -453,10 +454,39 @@ async function fetchQuestions() {
         num = 0;
         progressBar.style.width = "0";
         currentPage = 1;
+        // Clear any values in local storage.
+        localStorage.clear();
     })
+
+    $("#resume").on("click", resumeQuiz);
+
+    function resumeQuiz(){
+        $("#resume").addClass("hidden");
+        for(let intro of introText){
+            intro.style.display = "none";
+        };
+        header.style.display = "none";
+        // Display questions section and load the first question
+        questionsWrapper.style.display = "flex";
+        questionsWrapper.style.display = "none";
+        plansWrapper.style.display = "flex";
+        planHead.style.display = "block";
+        footer.style.display = "block";
+        userAnswers = JSON.parse(localStorage.getItem("previousAnswers"));
+        numLines = userAnswers[0];
+        sortPlans(plansData);
+    }
 
     // Update copyright date
     document.getElementById("year").textContent = new Date().getFullYear();
 }
+
+// On page load, check if the user has ever taken the test before
+$(function(){
+    // If the user has taken the test, give the option to resume.
+    if(localStorage.getItem("previousAnswers")){
+        $("#resume").removeClass("hidden");
+    }
+})
 
 fetchQuestions();

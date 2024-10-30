@@ -165,11 +165,13 @@ header {
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    overflow-y: hidden;
+    position: relative;
 }
 
 #start {
     padding: 25px 65px;
-    font-size: 1rem;
+    font-size: 1.4rem;
     color: black;
     background-color: white;
     border-radius: 15px;
@@ -802,7 +804,7 @@ header {
     background: var(--white);
     border-radius: 10px;
     border: none;
-    transition: 0.3s all ease;
+    transition: transform 0.3s ease;
     font-family: var(--primary-font);
     margin-left: 10px;
     margin-right: 10px;
@@ -829,7 +831,7 @@ header {
 
 .pageBtns {
     border-radius: 10px;
-    transition: 0.3s all ease;
+    transition: transform 0.3s ease;
     font-family: var(--primary-font);
     width: 50px;
     height: 50px;
@@ -863,7 +865,19 @@ header {
     font-size: 1.2rem;
     color: black;
     font-family: var(--primary-font);
-    transition: 0.3s all ease;
+    transition: transform 0.3s ease;
+    padding: 12px;
+    font-size: 1rem;
+    border-radius: 20px;
+    cursor: pointer;
+    position: absolute;
+    bottom: 80px;
+}
+
+#resume:hover {
+    transform: translateY(-10px);
+    background: var(--background-gradient);
+    color: var(--text-color);
 }
 
 footer {
@@ -871,6 +885,12 @@ footer {
     margin-top: 2rem;
     margin-bottom: 1rem;
     display: none;
+}
+
+@media screen and (max-height: 670px) {
+    #resume {
+        bottom: 20px;
+    }
 }
 
 @media screen and (min-width: 768px) {
@@ -953,6 +973,11 @@ footer {
 
     #carousel h3 {
         font-size: 3rem;
+    }
+
+    #resume {
+        font-size: 1.2rem;
+        padding: 20px;
     }
 }
 

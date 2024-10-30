@@ -301,8 +301,8 @@ header {
 
     font-size: 1rem;
     text-align: center;
-    color: var(--text-color);
-    background-color: var(--background-color);
+    color: black;
+    background-color: white;
     font-family: var(--primary-font);
     border-radius: 20px;
     border: var(--border);
@@ -310,7 +310,6 @@ header {
 }
 
 .answerBtns:hover {
-    background: var(--background-gradient);
     transform: translateY(-10px);
     box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.8);
     border: none;
@@ -327,7 +326,7 @@ header {
 
     font-size: 1rem;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    color: #000000;
+    color: black;
 }
 
 #next svg {
@@ -337,7 +336,7 @@ header {
 }
 
 #next:hover {
-    background-color: var(--background-color);
+    background: var(--background-gradient);
     color: white;
     cursor: pointer;
     box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.8);
@@ -354,7 +353,7 @@ header {
     padding: 4%;
 
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    color: #000000;
+    color: black;
 }
 
 #restart svg {
@@ -364,7 +363,7 @@ header {
 }
 
 #restart:hover {
-    background-color: var(--background-color);
+    background: var(--background-gradient);
     color: white;
     cursor: pointer;
     box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.8);
@@ -398,17 +397,8 @@ header {
 }
 
 .clicked {
-    background-color: white;
-    color: var(--background-color);
-    transition: all 0.2s ease;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
-        rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
-}
-
-.clicked:hover {
-    background-color: white;
-    background: white;
-    transform: none;
+    background: var(--background-gradient);
+    color: white;
 }
 
 #recommendedPlans {

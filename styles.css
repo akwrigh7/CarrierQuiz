@@ -967,7 +967,8 @@ footer {
 
     #resume {
         font-size: 1.2rem;
-        padding: 20px;
+        padding: 12px;
+        bottom: 10px;
     }
 }
 

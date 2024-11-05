@@ -919,6 +919,7 @@ footer {
     width: 600px;
     padding: 30px;
     position: relative;
+    border-radius: 25px;
 }
 
 #modalWrapper svg {
@@ -977,6 +978,7 @@ footer {
         width: 70%;
         padding: 30px;
         position: relative;
+        border-radius: 25px;
     }
 
     #modalHead {

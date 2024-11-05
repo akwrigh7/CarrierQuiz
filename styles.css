@@ -284,6 +284,7 @@ header {
 #question {
     font-size: 1.3rem;
     margin: 1rem;
+    display: inline-block;
 }
 
 #answers {
@@ -877,9 +878,37 @@ footer {
     display: none;
 }
 
+#questionSVG {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#questionSVG svg {
+    height: 40px;
+    width: 40px;
+    text-align: center;
+    margin-right: 50px;
+    flex-shrink: 0;
+    transition: transform 0.3s ease;
+}
+
+#questionSVG svg:hover {
+    cursor: pointer;
+    transform: translateY(-5px);
+}
+
 @media screen and (max-height: 670px) {
     #resume {
         bottom: 20px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    #questionSVG svg {
+        height: 25px;
+        width: 25px;
+        margin-right: 10px;
     }
 }
 

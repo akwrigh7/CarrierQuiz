@@ -117,6 +117,17 @@ async function fetchQuestions() {
     let a4 = document.getElementById("4");
     let questionNum = document.getElementById("questionNum");
     let q = document.getElementById("question");
+    let infoBtn = document.querySelector("#questionSVG svg");
+    let infoModal = document.getElementById("infoModal");
+    let modalP = document.getElementById("modalP");
+    let modalHead = document.getElementById("modalHead");
+    let modalClose = document.querySelector("#modalWrapper svg");
+    infoBtn.addEventListener("click", () => {
+        infoModal.style.display = "flex";
+    })
+    modalClose.addEventListener("click", () => {
+        infoModal.style.display = "none";
+    })
     // Load question
     function loadQuestion(num){
         console.log("this is num" + num);
@@ -141,6 +152,8 @@ async function fetchQuestions() {
             a2.innerHTML = questionsData[num].a2;
             a3.innerHTML = questionsData[num].a3;
             a4.innerHTML = questionsData[num].a4;
+            modalHead.innerHTML = questionsData[num].title;
+            modalP.innerHTML = questionsData[num].info;
         }
     }
 

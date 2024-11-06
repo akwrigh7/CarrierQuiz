@@ -999,6 +999,14 @@ footer {
     border-radius: 10px;
 }
 
+.accordionLink {
+    color: black;
+}
+
+.accordionLink:hover {
+    color: blue;
+}
+
 @media screen and (max-height: 670px) {
     #resume {
         bottom: 20px;

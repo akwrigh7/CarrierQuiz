@@ -490,16 +490,40 @@ async function fetchQuestions() {
         sortPlans(plansData);
     }
 
+
+
+
     // Update copyright date
     document.getElementById("year").textContent = new Date().getFullYear();
 }
 
+const plusIcon = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" width="24" height="24" stroke-width="2"> <path d="M12 5l0 14"></path> <path d="M5 12l14 0"></path> </svg>`;
+const minusIcon = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" width="24" height="24" stroke-width="2"> <path d="M5 12l14 0"></path> </svg>`;
 // On page load, check if the user has ever taken the test before
 $(function(){
     // If the user has taken the test, give the option to resume.
     if(localStorage.getItem("previousAnswers")){
         $("#resume").removeClass("hidden");
     }
+
+    $("#accordion").accordion({
+        active: false,
+        collapsible: true,
+        icons: false,
+        heightStyle: "content",
+        create: function() {
+            $(".accordionIcon").html(plusIcon);
+        },
+        activate: function(event, button) {
+            $(".accordionIcon").html(plusIcon);
+    
+            button.newHeader.find(".accordionIcon").html(minusIcon);
+        }
+    });
+
+    
+
+    
 })
 
 fetchQuestions();

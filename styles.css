@@ -959,6 +959,46 @@ footer {
     line-height: 1.8em;
 }
 
+#accordion {
+    width: 80%;
+    font-family: var(--primary-font);
+    color: black;
+    border: none;
+}
+
+#accordion h3 {
+    margin-bottom: 10px;
+    margin-top: 10px;
+    font-size: 1.3rem;
+    color: black;
+    background-color: white;
+    border: none;
+    padding-left: 50px;
+    position: relative;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+}
+
+.accordionIcon {
+    height: 20px;
+    width: 20px;
+    position: absolute;
+    top: 20px;
+    left: 10px;
+}
+
+#accordion p {
+    font-size: 1.2rem;
+    word-wrap: break-word;
+}
+
+#accordion div {
+    border: none;
+    border-radius: 10px;
+}
+
 @media screen and (max-height: 670px) {
     #resume {
         bottom: 20px;
@@ -993,6 +1033,18 @@ footer {
 
     #modalP {
         font-size: 1rem;
+    }
+
+    #accordion p {
+        font-size: 1rem;
+    }
+
+    #accordion h3 {
+        font-size: 1.1rem;
+    }
+
+    .accordionIcon {
+        top: 17px;
     }
 }
 

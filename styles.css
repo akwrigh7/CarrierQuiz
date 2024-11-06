@@ -962,7 +962,7 @@ footer {
 #accordion {
     width: 80%;
     font-family: var(--primary-font);
-    color: black;
+
     border: none;
 }
 
@@ -985,7 +985,7 @@ footer {
     height: 20px;
     width: 20px;
     position: absolute;
-    top: 20px;
+    top: 18px;
     left: 10px;
 }
 

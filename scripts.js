@@ -511,19 +511,14 @@ $(function(){
         collapsible: true,
         icons: false,
         heightStyle: "content",
-        create: function() {
+        create: function(event, ui) {
             $(".accordionIcon").html(plusIcon);
         },
-        activate: function(event, button) {
+        activate: function(event, ui) {
             $(".accordionIcon").html(plusIcon);
-    
-            button.newHeader.find(".accordionIcon").html(minusIcon);
+            $(".ui-state-active .accordionIcon").html(minusIcon);
         }
     });
-
-    
-
-    
 })
 
 fetchQuestions();

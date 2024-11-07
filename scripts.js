@@ -122,12 +122,8 @@ async function fetchQuestions() {
     let modalP = document.getElementById("modalP");
     let modalHead = document.getElementById("modalHead");
     let modalClose = document.querySelector("#modalWrapper svg");
-    infoBtn.addEventListener("click", () => {
-        infoModal.style.display = "flex";
-    })
-    modalClose.addEventListener("click", () => {
-        infoModal.style.display = "none";
-    })
+    infoBtn.addEventListener("click", () => infoModal.style.display = "flex");
+    modalClose.addEventListener("click", () => infoModal.style.display = "none");
     // Load question
     function loadQuestion(num){
         console.log("this is num" + num);
@@ -203,6 +199,7 @@ async function fetchQuestions() {
         // Display only plans that include AT&T for coverage
         if(filter == "attFilter"){
             let attPlans = [];
+            console.log(currentPage);
             // If the current plan includes the selected coverage, add it to the array
             for(let plan of plansData){
                 if(plan.network.includes("AT&T") || plan.network.includes("Any")){
@@ -231,7 +228,6 @@ async function fetchQuestions() {
         // Loop over each plan
         for(let plan of plansToSort){
             let comparison = [];
-            console.log(plan);
             // For each plan, subtract the users answers from the score of the current plan and add the difference to a new array
             for(let i = 0; i < plan.score.length; i++){
                 // Use the absolute value of the comparison
@@ -243,14 +239,14 @@ async function fetchQuestions() {
             // The lower the total, the closer the match is to the user's answers
             let total = 0;
             for(let i = 0; i < comparison.length; i++){
-                total += comparison[i];
-                plan.total = total;
+                total += comparison[i]; 
             }
-            console.log(plan.total);
+            plan.total = total;
         }
         // Sort plans in descending order so that the plan with the lowest total displays first
         sorted = plansToSort.sort((a, b) => a.total - b.total);
         // Display the sorted plans to the page
+        console.log(sorted);
         loadPlans(sorted);
     }
 
@@ -489,10 +485,6 @@ async function fetchQuestions() {
         numLines = userAnswers[0];
         sortPlans(plansData);
     }
-
-
-
-
     // Update copyright date
     document.getElementById("year").textContent = new Date().getFullYear();
 }
@@ -506,19 +498,26 @@ $(function(){
         $("#resume").removeClass("hidden");
     }
 
+    // Create accordion widget
     $("#accordion").accordion({
+        // Set all sections to closed initially
         active: false,
+        // Allow sections to be collapsible
         collapsible: true,
+        // Disable default icons
         icons: false,
+        // Set the height of the sections to match the size of the content within them
         heightStyle: "content",
+        // Set all icons to "plus" when initially created
         create: function(event, ui) {
             $(".accordionIcon").html(plusIcon);
         },
         activate: function(event, ui) {
+            // Set all icons to "plus" after an element has been clicked
             $(".accordionIcon").html(plusIcon);
+            // Set the icon of the element that was clicked to "minus"
             $(".ui-state-active .accordionIcon").html(minusIcon);
         }
     });
-})
-
+});
 fetchQuestions();

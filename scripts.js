@@ -441,26 +441,33 @@ $(function(){
             $(".ui-state-active .accordionIcon").html(minusIcon);
         }
     });
-});
 
-$(document).ready(function(){
+    // Create carousel
     $(".owl-carousel").owlCarousel({
+        // Allow cards to be looped through
         loop: true,
+        // Set margin between cards
         margin: 15,
+        // Set breakpoints for cards
         responsive: {
+            // On small screens display 2 cards
             0 : {
                 items: 2
             },
+            // On large screens display 3 cards
             480 : {
                 items : 3
             }
         },
+        // Set cards to auto loop
         autoplay: true,
+        // Set time between transitions
         autoplayTimeout: 5000,
+        // Set cards to pause transition upon hover
         autoplayHoverPause: true,
-        
+        // Create nacigation dots
         dots: true
     });
-  });
+});
 
 fetchQuestions();

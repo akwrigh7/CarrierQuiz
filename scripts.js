@@ -442,4 +442,25 @@ $(function(){
         }
     });
 });
+
+$(document).ready(function(){
+    $(".owl-carousel").owlCarousel({
+        loop: true,
+        margin: 15,
+        responsive: {
+            0 : {
+                items: 2
+            },
+            480 : {
+                items : 3
+            }
+        },
+        autoplay: true,
+        autoplayTimeout: 5000,
+        autoplayHoverPause: true,
+        
+        dots: true
+    });
+  });
+
 fetchQuestions();

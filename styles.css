@@ -969,7 +969,7 @@ footer {
 #accordion h3 {
     margin-bottom: 10px;
     margin-top: 10px;
-    font-size: 1.3rem;
+    font-size: 1.1rem;
     color: black;
     background-color: white;
     border: none;
@@ -990,8 +990,9 @@ footer {
 }
 
 #accordion p {
-    font-size: 1.2rem;
+    font-size: 1rem;
     word-wrap: break-word;
+    line-height: 1.5rem;
 }
 
 #accordion div {
@@ -1005,6 +1006,13 @@ footer {
 
 .accordionLink:hover {
     color: blue;
+}
+
+/* Carousel */
+.owl-carousel {
+    width: 65%;
+    margin-top: 25px;
+    margin-bottom: 25px;
 }
 
 @media screen and (max-height: 670px) {
@@ -1044,15 +1052,19 @@ footer {
     }
 
     #accordion p {
-        font-size: 1rem;
+        font-size: 0.8rem;
     }
 
     #accordion h3 {
-        font-size: 1.1rem;
+        font-size: 0.9rem;
     }
 
     .accordionIcon {
-        top: 17px;
+        top: 15px;
+    }
+
+    .owl-carousel {
+        width: 80%;
     }
 }
 

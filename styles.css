@@ -993,9 +993,6 @@ footer {
     font-size: 1rem;
     word-wrap: break-word;
     line-height: 1.5rem;
-}
-
-#accordion div {
     border: none;
     border-radius: 10px;
 }
@@ -1022,6 +1019,10 @@ footer {
 }
 
 @media screen and (max-width: 460px) {
+    #newQuiz {
+        font-size: 1.5rem;
+    }
+
     .introText {
         font-size: 1.5rem;
         margin: 1.7rem;
@@ -1074,6 +1075,10 @@ footer {
 
     #accordion {
         width: 80%;
+    }
+
+    #carousel h3 {
+        font-size: 2rem;
     }
 }
 
@@ -1151,12 +1156,12 @@ footer {
     }
 
     #planHead {
-        font-size: 3.5rem;
+        font-size: 3rem;
         padding: 2rem;
     }
 
     #carousel h3 {
-        font-size: 3rem;
+        font-size: 2.5rem;
     }
 
     #resume {

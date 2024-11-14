@@ -960,7 +960,7 @@ footer {
 }
 
 #accordion {
-    width: 80%;
+    width: 70%;
     font-family: var(--primary-font);
 
     border: none;
@@ -1064,6 +1064,10 @@ footer {
     }
 
     .owl-carousel {
+        width: 80%;
+    }
+
+    #accordion {
         width: 80%;
     }
 }

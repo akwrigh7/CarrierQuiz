@@ -1022,6 +1022,11 @@ footer {
 }
 
 @media screen and (max-width: 460px) {
+    .introText {
+        font-size: 1.5rem;
+        margin: 1.7rem;
+    }
+
     #questionSVG svg {
         height: 30px;
         width: 30px;

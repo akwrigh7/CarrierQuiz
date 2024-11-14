@@ -391,21 +391,27 @@ async function fetchQuestions() {
     $("#resume").on("click", resumeQuiz);
 
     function resumeQuiz(){
-        $("#resume").addClass("hidden");
-        for(let intro of introText){
-            intro.style.display = "none";
-        };
-        header.style.display = "none";
-        // Display questions section and load the first question
-        questionsWrapper.style.display = "flex";
-        questionsWrapper.style.display = "none";
-        plansWrapper.style.display = "flex";
-        planHead.style.display = "block";
-        footer.style.display = "block";
-        // Retreive users previous answers from local storage and parse into JSON
-        userAnswers = JSON.parse(localStorage.getItem("previousAnswers"));
-        numLines = userAnswers[0];
-        sortPlans(plansData);
+        if(localStorage.getItem("previousAnswers") !== null){
+            $("#resume").addClass("hidden");
+            for(let intro of introText){
+                intro.style.display = "none";
+            };
+            header.style.display = "none";
+            // Display questions section and load the first question
+            questionsWrapper.style.display = "flex";
+            questionsWrapper.style.display = "none";
+            plansWrapper.style.display = "flex";
+            planHead.style.display = "block";
+            footer.style.display = "block";
+            // Retreive users previous answers from local storage and parse into JSON
+            userAnswers = JSON.parse(localStorage.getItem("previousAnswers"));
+            numLines = userAnswers[0];
+            sortPlans(plansData);
+        }else{
+            console.error("There was an error retrieving previous answers. Please retake the quiz.");
+            $("#resume").addClass("hidden");
+        }
+        
     }
     // Update copyright date
     document.getElementById("year").textContent = new Date().getFullYear();

@@ -1012,11 +1012,15 @@ footer {
     margin-bottom: 25px;
 }
 
+/* iPhone SE and very small device styles */
+
 @media screen and (max-height: 670px) {
     #resume {
         bottom: 20px;
     }
 }
+
+/* Mobile device styles */
 
 @media screen and (max-width: 460px) {
     #newQuiz {
@@ -1081,6 +1085,8 @@ footer {
         font-size: 2rem;
     }
 }
+
+/* Larger screen styles */
 
 @media screen and (min-width: 768px) {
     #heading {
@@ -1169,7 +1175,4 @@ footer {
         padding: 12px;
         bottom: 10px;
     }
-}
-
-@media screen and (min-width: 1080px) {
 }

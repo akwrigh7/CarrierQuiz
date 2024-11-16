@@ -386,6 +386,7 @@ async function fetchQuestions() {
         currentPage = 1;
         // Clear any values in local storage.
         localStorage.clear();
+        $("#resume").addClass("hidden");
     })
     // Resume quiz button
     $("#resume").on("click", resumeQuiz);

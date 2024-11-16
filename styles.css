@@ -189,7 +189,7 @@ header {
     color: white;
 }
 
-/* Code for spinning rainbow from: https://www.coding2go.com */
+/* Start of spinning animation - Code from: https://www.coding2go.com */
 #heading {
     margin: 0 auto;
     padding: 3rem;
@@ -240,6 +240,7 @@ header {
         --angle: 360deg;
     }
 }
+/* End of spinning animation */
 
 .introText {
     font-size: 2rem;
@@ -414,7 +415,6 @@ header {
 }
 
 #plansWrapper {
-    /* change */
     display: none;
     align-items: center;
     justify-content: center;
@@ -422,7 +422,6 @@ header {
 }
 
 #planHead {
-    /* change */
     display: none;
     background: var(--background-gradient);
     font-size: 2rem;

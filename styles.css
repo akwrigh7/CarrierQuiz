@@ -189,6 +189,7 @@ header {
     color: white;
 }
 
+/* Validation errors are being caused by this animation. From what I can tell, I beleive it is because this type of animation isn't supported in all browsers. */
 /* Start of spinning animation - Code from: https://www.coding2go.com */
 #heading {
     margin: 0 auto;
